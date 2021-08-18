@@ -14,10 +14,12 @@ public partial class MainWindow : Gtk.Window
         a.RetVal = true;
     }
 
-    long num1 = 0; long num2 = 0; long i = 0;
+    long num1 = 0; long num2 = 0; long count = 0; long num3 = 0; long i = 0;
     long[] Ack = new long[0];
     bool numcheck = true;
-
+    bool one = false;
+    bool man = false;
+    bool oku = false;
 
     protected void Button1_Clicked(object sender, EventArgs e)
     {
@@ -25,9 +27,12 @@ public partial class MainWindow : Gtk.Window
         label5.Text = "計測中";
         entry4.Text = "";
         Button2.Label = "計算中";
+        count = 0;
+        ComboChanged();
+        ComboKawaru();
         sw.Start();
         numcheck = true;
-        if (long.TryParse(entry1.Text,out i)==false || long.TryParse(entry2.Text, out i) == false)
+        if (long.TryParse(entry1.Text,out i)==false || long.TryParse(entry2.Text, out i) == false || long.TryParse(entry3.Text, out i) == false)
         {
             MessageDialog msg = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Error, ButtonsType.Ok, "自然数を入力してください");
             msg.Run();
@@ -37,6 +42,9 @@ public partial class MainWindow : Gtk.Window
         for(int j=0; j<1; j++)
         {
             if (numcheck == false) break;
+            if (one == true) num3 = long.Parse(entry3.Text);
+            else if (man == true) num3 = (long.Parse(entry3.Text) * 10000);
+            else if (oku == true) num3 = (long.Parse(entry3.Text) * 10000 * 10000);
             Ack = new long[2] { long.Parse(entry1.Text), long.Parse(entry2.Text) };
             while (Ack.Length != 2 || Ack[0] != 0)
             {
@@ -61,14 +69,27 @@ public partial class MainWindow : Gtk.Window
                     Ack[Ack.Length - 2] = num2;
                     Ack[Ack.Length - 1] = num1 - 1;
                 }
+                count++;
+                if (num3 == 0) { }
+                else if (count % num3 == 0)
+                {
+                    MessageDialog msg2 = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Info, ButtonsType.Ok, count + "回の計算が終了しました。");
+                    msg2.Run();
+                    msg2.Destroy();
+                }
             }
             num2 = Ack[Ack.Length - 1] + 1;
             entry4.Text = num2.ToString();
+            count++;
+            MessageDialog msg3 = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Info, ButtonsType.Ok, count + "回の計算が終了したところで、計算結果が出ました。");
+            msg3.Run();
+            msg3.Destroy();
+
         }
         if (numcheck == false)
         {
-            entry1.Text = "";
-            entry2.Text = "";
+            //entry1.Text = "";
+            //entry2.Text = "";
             entry4.Text = "NaN";
         }
         sw.Stop();
@@ -80,5 +101,18 @@ public partial class MainWindow : Gtk.Window
     protected void OnAction1Activated(object sender, EventArgs e)
     {
         Application.Quit();
+    }
+    protected void ComboKawaru()
+    {
+        if (comboboxentry1.ActiveText == "一") one = true;
+        else if (comboboxentry1.ActiveText == "万") man = true;
+        else if (comboboxentry1.ActiveText == "億") oku = true;
+
+    }
+    protected void ComboChanged()
+    {
+        one = false;
+        man = false;
+        oku = false;
     }
 }

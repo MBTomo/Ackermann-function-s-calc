@@ -6,7 +6,7 @@
   <import>
     <widget-library name="../bin/Release/MathVariousKinds.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="551 300">
+  <widget class="Gtk.Window" id="MainWindow" design-size="560 300">
     <action-group name="Default">
       <action id="Action">
         <property name="Type">Action</property>
@@ -15,13 +15,19 @@
       </action>
       <action id="Action1">
         <property name="Type">Action</property>
-        <property name="Label" translatable="yes" comments="Quit">終了</property>
-        <property name="ShortLabel" translatable="yes" comments="Quit">終了</property>
+        <property name="Label" translatable="yes">終了</property>
+        <property name="ShortLabel" translatable="yes">終了</property>
+        <signal name="Activated" handler="OnAction1Activated" />
+      </action>
+      <action id="Action2">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">終了</property>
+        <property name="ShortLabel" translatable="yes">終了</property>
         <signal name="Activated" handler="OnAction1Activated" />
       </action>
     </action-group>
     <property name="MemberName" />
-    <property name="Title" translatable="yes">MainWindow</property>
+    <property name="Title" translatable="yes">Ackermann function</property>
     <property name="WindowPosition">CenterOnParent</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
@@ -46,15 +52,13 @@
                         <property name="HeightRequest">20</property>
                         <node name="__gtksharp_167_Stetic_Editor_ActionMenuBar" type="Menubar">
                           <node type="Menu" action="Action">
-                            <node type="Menuitem" action="Action1" />
+                            <node type="Menuitem" action="Action2" />
                           </node>
                         </node>
                       </widget>
                       <packing>
                         <property name="Position">0</property>
                         <property name="AutoSize">False</property>
-                        <property name="Expand">False</property>
-                        <property name="Fill">False</property>
                       </packing>
                     </child>
                     <child>
@@ -305,7 +309,110 @@
                     <property name="MemberName" />
                     <property name="Spacing">6</property>
                     <child>
-                      <placeholder />
+                      <widget class="Gtk.HBox" id="hbox6">
+                        <property name="MemberName" />
+                        <property name="Spacing">6</property>
+                        <child>
+                          <widget class="Gtk.HBox" id="hbox7">
+                            <property name="MemberName" />
+                            <property name="Spacing">6</property>
+                            <child>
+                              <widget class="Gtk.Fixed" id="fixed2">
+                                <property name="MemberName" />
+                                <property name="HasWindow">False</property>
+                              </widget>
+                              <packing>
+                                <property name="Position">0</property>
+                                <property name="AutoSize">True</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="Gtk.HBox" id="hbox8">
+                                <property name="MemberName" />
+                                <property name="Spacing">6</property>
+                                <child>
+                                  <widget class="Gtk.Entry" id="entry3">
+                                    <property name="MemberName" />
+                                    <property name="WidthRequest">200</property>
+                                    <property name="CanFocus">True</property>
+                                    <property name="IsEditable">True</property>
+                                    <property name="InvisibleChar">•</property>
+                                  </widget>
+                                  <packing>
+                                    <property name="Position">0</property>
+                                    <property name="AutoSize">True</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <widget class="Gtk.ComboBoxEntry" id="comboboxentry1">
+                                    <property name="MemberName" />
+                                    <property name="WidthRequest">100</property>
+                                    <property name="IsTextCombo">True</property>
+                                    <property name="Items" translatable="yes">一
+万
+億</property>
+                                    <property name="Active">2</property>
+                                  </widget>
+                                  <packing>
+                                    <property name="Position">1</property>
+                                    <property name="AutoSize">True</property>
+                                    <property name="Expand">False</property>
+                                    <property name="Fill">False</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <widget class="Gtk.Label" id="label1">
+                                    <property name="MemberName" />
+                                    <property name="LabelProp" translatable="yes">回計算終了ごとに通知する</property>
+                                  </widget>
+                                  <packing>
+                                    <property name="Position">2</property>
+                                    <property name="AutoSize">True</property>
+                                    <property name="Expand">False</property>
+                                    <property name="Fill">False</property>
+                                  </packing>
+                                </child>
+                              </widget>
+                              <packing>
+                                <property name="Position">1</property>
+                                <property name="AutoSize">True</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="Gtk.Fixed" id="fixed9">
+                                <property name="MemberName" />
+                                <property name="HasWindow">False</property>
+                              </widget>
+                              <packing>
+                                <property name="Position">2</property>
+                                <property name="AutoSize">True</property>
+                              </packing>
+                            </child>
+                          </widget>
+                          <packing>
+                            <property name="Position">0</property>
+                            <property name="AutoSize">True</property>
+                          </packing>
+                        </child>
+                      </widget>
+                      <packing>
+                        <property name="Position">0</property>
+                        <property name="AutoSize">True</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Gtk.Fixed" id="fixed1">
+                        <property name="MemberName" />
+                        <property name="HasWindow">False</property>
+                      </widget>
+                      <packing>
+                        <property name="Position">1</property>
+                        <property name="AutoSize">True</property>
+                        <property name="Expand">False</property>
+                        <property name="Fill">False</property>
+                      </packing>
                     </child>
                     <child>
                       <widget class="Gtk.Label" id="label5">
@@ -313,7 +420,7 @@
                         <property name="LabelProp" translatable="yes">( 計算にかかった時間を表示します。)</property>
                       </widget>
                       <packing>
-                        <property name="Position">1</property>
+                        <property name="Position">2</property>
                         <property name="AutoSize">True</property>
                         <property name="Expand">False</property>
                         <property name="Fill">False</property>
@@ -323,6 +430,8 @@
                   <packing>
                     <property name="Position">3</property>
                     <property name="AutoSize">True</property>
+                    <property name="Expand">False</property>
+                    <property name="Fill">False</property>
                   </packing>
                 </child>
                 <child>
