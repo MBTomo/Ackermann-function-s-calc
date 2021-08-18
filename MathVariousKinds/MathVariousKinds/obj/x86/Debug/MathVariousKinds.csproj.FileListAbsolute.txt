@@ -1,0 +1,6 @@
+/home/tomoki/Projects/MathVariousKinds/MathVariousKinds/bin/Debug/MathVariousKinds.exe
+/home/tomoki/Projects/MathVariousKinds/MathVariousKinds/bin/Debug/MathVariousKinds.pdb
+/home/tomoki/Projects/MathVariousKinds/MathVariousKinds/obj/x86/Debug/MathVariousKinds.csprojAssemblyReference.cache
+/home/tomoki/Projects/MathVariousKinds/MathVariousKinds/obj/x86/Debug/MathVariousKinds.csproj.CoreCompileInputs.cache
+/home/tomoki/Projects/MathVariousKinds/MathVariousKinds/obj/x86/Debug/MathVariousKinds.exe
+/home/tomoki/Projects/MathVariousKinds/MathVariousKinds/obj/x86/Debug/MathVariousKinds.pdb

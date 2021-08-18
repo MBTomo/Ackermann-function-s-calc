@@ -1,0 +1,4 @@
+/home/tomoki/Projects/MathVariousKinds/MathVariousKinds/bin/Release/MathVariousKinds.exe
+/home/tomoki/Projects/MathVariousKinds/MathVariousKinds/obj/x86/Release/MathVariousKinds.csproj.CoreCompileInputs.cache
+/home/tomoki/Projects/MathVariousKinds/MathVariousKinds/obj/x86/Release/MathVariousKinds.exe
+/home/tomoki/Projects/MathVariousKinds/MathVariousKinds/obj/x86/Release/MathVariousKinds.csprojAssemblyReference.cache
