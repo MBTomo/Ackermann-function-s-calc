@@ -11,6 +11,10 @@ public partial class MainWindow
 
 	private global::Gtk.Action Action2;
 
+	private global::Gtk.Action Action3;
+
+	private global::Gtk.Action Action4;
+
 	private global::Gtk.Alignment alignment1;
 
 	private global::Gtk.VBox vbox1;
@@ -100,6 +104,12 @@ public partial class MainWindow
 		this.Action2 = new global::Gtk.Action("Action2", global::Mono.Unix.Catalog.GetString("終了"), null, null);
 		this.Action2.ShortLabel = global::Mono.Unix.Catalog.GetString("終了");
 		w1.Add(this.Action2, null);
+		this.Action3 = new global::Gtk.Action("Action3", global::Mono.Unix.Catalog.GetString("ベンチマーク"), null, null);
+		this.Action3.ShortLabel = global::Mono.Unix.Catalog.GetString("ベンチマーク");
+		w1.Add(this.Action3, null);
+		this.Action4 = new global::Gtk.Action("Action4", global::Mono.Unix.Catalog.GetString("実行"), null, null);
+		this.Action4.ShortLabel = global::Mono.Unix.Catalog.GetString("実行");
+		w1.Add(this.Action4, null);
 		this.UIManager.InsertActionGroup(w1, 0);
 		this.AddAccelGroup(this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -123,7 +133,8 @@ public partial class MainWindow
 		this.vbox5.Name = "vbox5";
 		// Container child vbox5.Gtk.Box+BoxChild
 		this.UIManager.AddUiFromString("<ui><menubar name=\'menubar2\'><menu name=\'Action\' action=\'Action\'><menuitem name=\'" +
-				"Action2\' action=\'Action2\'/></menu></menubar></ui>");
+				"Action2\' action=\'Action2\'/></menu><menu name=\'Action3\' action=\'Action3\'><menuite" +
+				"m name=\'Action4\' action=\'Action4\'/></menu></menubar></ui>");
 		this.menubar2 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget("/menubar2")));
 		this.menubar2.HeightRequest = 20;
 		this.menubar2.Name = "menubar2";
@@ -429,6 +440,7 @@ public partial class MainWindow
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler(this.OnDeleteEvent);
 		this.Action1.Activated += new global::System.EventHandler(this.OnAction1Activated);
 		this.Action2.Activated += new global::System.EventHandler(this.OnAction1Activated);
+		this.Action4.Activated += new global::System.EventHandler(this.OnAction4Activated);
 		this.Button2.Clicked += new global::System.EventHandler(this.Button1_Clicked);
 	}
 }

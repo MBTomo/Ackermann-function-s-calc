@@ -1,5 +1,6 @@
 ﻿using System;
 using Gtk;
+using MathVariousKinds;
 
 public partial class MainWindow : Gtk.Window
 {
@@ -73,14 +74,20 @@ public partial class MainWindow : Gtk.Window
                 if (num3 == 0) { }
                 else if (count % num3 == 0)
                 {
+                    sw.Stop();
+                    TimeSpan ts1 = sw.Elapsed;
+                    Button2.Label = "計算";
+                    label5.Text = $"{ts1.Hours}時間 {ts1.Minutes}分 {ts1.Seconds}秒 {ts1.Milliseconds}";
                     MessageDialog msg2 = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Info, ButtonsType.Ok, count + "回の計算が終了しました。");
                     msg2.Run();
                     msg2.Destroy();
+                    sw.Start();
                 }
             }
             num2 = Ack[Ack.Length - 1] + 1;
             entry4.Text = num2.ToString();
             count++;
+            sw.Stop();
             MessageDialog msg3 = new MessageDialog(null, DialogFlags.DestroyWithParent, MessageType.Info, ButtonsType.Ok, count + "回の計算が終了したところで、計算結果が出ました。");
             msg3.Run();
             msg3.Destroy();
@@ -92,7 +99,6 @@ public partial class MainWindow : Gtk.Window
             //entry2.Text = "";
             entry4.Text = "NaN";
         }
-        sw.Stop();
         TimeSpan ts = sw.Elapsed;
         Button2.Label = "計算";
         label5.Text = $"{ts.Hours}時間 {ts.Minutes}分 {ts.Seconds}秒 {ts.Milliseconds}";
@@ -114,5 +120,11 @@ public partial class MainWindow : Gtk.Window
         one = false;
         man = false;
         oku = false;
+    }
+
+    protected void OnAction4Activated(object sender, EventArgs e)
+    {
+        BenchMarkWindow win2 = new BenchMarkWindow();
+        win2.Show();
     }
 }
